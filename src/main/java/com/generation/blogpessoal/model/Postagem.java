@@ -17,11 +17,11 @@ public class Postagem {
     private Long id;
 
     @NotBlank(message = "O atributo título é Obrigatório!")
-    @Size(min = 5,max = 100, message = "O atributo título deve conter no mínimo 05 e no máximo 100 caracteres")
+    @Size(min = 5, max = 100, message = "O atributo título deve conter no mínimo 05 e no máximo 100 caracteres")
     private String titulo;
 
     @NotBlank(message = "O atributo texto é Obrigatório!")
-    @Size(min = 10,max = 1000, message = "O atributo título deve conter no mínimo 10 e no máximo 1000 caracteres")
+    @Size(min = 10, max = 1000, message = "O atributo título deve conter no mínimo 10 e no máximo 1000 caracteres")
     private String texto;
 
     @UpdateTimestamp
@@ -30,6 +30,18 @@ public class Postagem {
     @ManyToOne
     @JsonIgnoreProperties("postagem")
     private Tema tema;
+
+    @ManyToOne
+    @JsonIgnoreProperties("postagem")
+    private Usuario usuario;
+
+    public Usuario getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
+    }
 
     public Long getId() {
         return id;
