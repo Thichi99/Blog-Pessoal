@@ -1,4 +1,4 @@
-FROM openjdk:21.0.2-jdk-oracle as build
+FROM openjdk:21-slim as build
 
 WORKDIR /workspace/app
 
